@@ -8,29 +8,48 @@
   }
 }
 
-nav#nav-links { 
+nav#nav-links {
   @include flexRowCenter();
   gap: 4rem;
+  @include respond(tab-768) {
+    display: none;
+  }
 }
- section{
+section {
   margin: 12.8rem 0;
- }
+  @include respond(tab-port) {
+    margin: 8rem 0;
+  }
+  @include respond(tab-768) {
+    margin: 12.8rem 0;
+  }
+}
 #section-hero {
   padding: 2rem 0 2rem 7rem;
-  position: relative; 
+  position: relative;
   @include respond(big-desktop) {
     padding: 8rem 0 2rem 2rem;
   }
-  // background-image: url(./../img/img-main/hero-img.jpg); 
+  // @include respond(tab-768) {
+  //   background: linear-gradient(#ffffff6e,#ffffff6e), url(./../img/img-main/hero-img.jpg) no-repeat;
+  // }
+  // background-image: url(./../img/img-main/hero-img.jpg);
   // background-size: 50%;
   // background-position: right;
   // height: 100vh;
-} 
+}
 #section-clients {
   padding: 0 5rem;
 }
 #section-features {
   padding: 5rem 6rem;
+  @include respond(dsk-1440) {
+    padding: 5rem 10rem;
+  }
+  @include respond(dsk-1600) {
+    padding: 5rem 10rem;
+  }
+
   position: relative;
   background-image: url(./../img/icons/Rectangle-24-bg.jpg);
   background-repeat: no-repeat;
@@ -60,6 +79,9 @@ nav#nav-links {
   position: relative;
   @include respond(big-desktop) {
     padding: 16rem;
+  }
+  @include respond(tab-port) {
+    padding: 5rem 2rem;
   }
 }
 #section-testimonial {

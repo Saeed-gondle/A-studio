@@ -3,6 +3,12 @@
   font-size: 4.6rem;
   line-height: 2.5;
   font-weight: 700;
+  @include respond(tab-port) {    
+    line-height: 1.5;
+  }
+  @include respond(tab-768) {    
+    font-size: 4.3rem;
+  }
 }
 .common-text {
   font-size: 1.6rem;
@@ -12,19 +18,28 @@
     @include respond(big-desktop-25) {
       max-width: 95%; 
     }
-     @include respond(big-desktop) {   
+     @include respond(big-desktop) {    
       max-width: 100%;
+    }
+    @include respond(tab-port) {    
+     margin-top: 2.5rem;
     }
 }
 .heading-secondary {
   font-size: 3.8rem;
   margin-bottom: 2rem; 
   font-family: "Averta", serif;
+  @include respond(tab-768) {    
+    font-size: 3.4rem;
+  }
 }
 
 .heading-tertiary {
   font-size: 2rem;
   line-height: 1.5; 
+  @include respond(tab-768) {    
+    font-size: 1.8rem;
+  }
 }
 .font-small {
   font-size: 1.4rem;

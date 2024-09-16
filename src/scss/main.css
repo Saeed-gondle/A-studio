@@ -1,0 +1,1207 @@
+/* cyrillic */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: bolder;
+  src: url(https://fonts.gstatic.com/l/font?kit=FwZc7-Am2FI_-VOxaLDvvq27pmO7&skey=96867d716c89840e&v=v19) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: bolder;
+  src: url(https://fonts.gstatic.com/l/font?kit=FwZc7-Am2FI_-VOxaLDvvq27rWO7&skey=96867d716c89840e&v=v19) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: bolder;
+  src: url(https://fonts.gstatic.com/l/font?kit=FwZc7-Am2FI_-VOxaLDvvq27rGO7&skey=96867d716c89840e&v=v19) format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: bolder;
+  src: url(https://fonts.gstatic.com/l/font?kit=FwZc7-Am2FI_-VOxaLDvvq27omO7&skey=96867d716c89840e&v=v19) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Averta";
+  font-style: normal;
+  font-weight: bolder;
+  src: url("./../Typography/AvertaDemoPECuttedDemo-Regular.otf") format("opentype");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Averta";
+  font-style: normal;
+  font-weight: bolder;
+  src: url("./../Typography/AvertaDemoPECuttedDemo-Regular.otf") format("opentype");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Averta";
+  font-style: normal;
+  font-weight: bolder;
+  src: url("./../Typography/AvertaDemoPECuttedDemo-Regular.otf") format("opentype");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Averta";
+  font-style: normal;
+  font-weight: bolder;
+  src: url("./../Typography/AvertaDemoPECuttedDemo-Regular.otf") format("opentype");
+  src: url(https://fonts.gstatic.com/l/font?kit=FwZc7-Am2FI_-VOxaLDvvq27omO7&skey=96867d716c89840e&v=v19) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+:root {
+  --color-primary: #5ec576;
+  --color-secondary: #ffcb03;
+  --color-tertiary: #ff585f;
+  --color-primary-darker: #4bbb7d;
+  --color-secondary-darker: #ffbb00;
+  --color-tertiary-darker: #fd424b;
+  --color-primary-opacity: #5ec5763a;
+  --color-secondary-opacity: #ffcd0331;
+  --color-tertiary-opacity: #ff58602d;
+  --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+  --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+.slider {
+  background-color: #fff;
+  max-width: 35rem;
+  height: 35rem;
+  margin: 0 auto;
+  position: relative;
+  transform: translateY(-5.4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* IN THE END */
+  overflow: hidden;
+}
+
+.slide {
+  background-color: rgba(255, 255, 255, 0.4588235294);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* THIS creates the animation! */
+  transition: transform 1s;
+}
+
+.slide > img {
+  /* Only for images that have different size than slide */
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  color: #333;
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3.25rem;
+  cursor: pointer;
+}
+
+.slider__btn--left {
+  left: 6%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__btn--right {
+  right: 6%;
+  transform: translate(50%, -50%);
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 3%;
+  display: flex;
+}
+
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+  /* Only necessary when overlying images */
+  /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  /* background-color: #fff; */
+  background-color: #2639ed;
+  opacity: 1;
+}
+
+/* TESTIMONIALS */
+.testimonial {
+  width: 97%;
+  position: relative;
+}
+
+.testimonial__header {
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial__text {
+  font-size: 1.7rem;
+  margin-bottom: -6.5rem;
+  color: #666;
+  -webkit-text-decoration: double;
+          text-decoration: double;
+}
+
+.testimonial__author {
+  margin-left: 3rem;
+  font-style: normal;
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+
+.testimonial__photo {
+  grid-row: 1/span 2;
+  width: 6.5rem;
+  border-radius: 50%;
+}
+
+.testimonial__name {
+  font-size: 1.7rem;
+  font-weight: 500;
+  align-self: end;
+  margin: 0;
+}
+
+.testimonial__location {
+  font-size: 1.5rem;
+}
+
+.section__title--testimonials {
+  margin-bottom: 4rem;
+}
+
+.footer {
+  padding: 12.8rem 0;
+  border-top: 1px solid #eee;
+}
+
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+
+.logo-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: 3.2rem;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.social-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.copyright {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #767676;
+  margin-top: auto;
+}
+
+.footer-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.contacts {
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.address {
+  margin-bottom: 2.4rem;
+}
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+  transition: all 0.3s;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: #555;
+}
+
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font weights
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+- Line heights
+Default: 1
+Small: 1.05
+Medium: 1.2
+Paragraph default: 1.6
+Large: 1.8
+
+- Letter spacing
+-0.5px
+0.75px
+
+--- 02 COLORS
+
+- Primary: #e67e22
+- Tints:
+#fdf2e9
+#fae5d3
+#eb984e
+
+- Shades: 
+#cf711f
+#45260a
+
+- Accents:
+- Greys
+
+#888
+#767676 (lightest grey allowed on #fff)
+#6f6f6f (lightest grey allowed on #fdf2e9)
+#555
+#333
+
+--- 05 SHADOWS
+
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+--- 06 BORDER-RADIUS
+
+Default: 9px
+Medium: 11px
+
+--- 07 WHITESPACE
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+.container {
+  /* 1140px */
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  -moz-column-gap: 6.4rem;
+       column-gap: 6.4rem;
+  row-gap: 9.6rem;
+  /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* .grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+} */
+.grid--center-v {
+  align-items: center;
+}
+
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  /* Put transition on original "state" */
+  /* transition: background-color 0.3s; */
+  transition: all 0.3s;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  /* border: 3px solid #fff; */
+  /* Trick to add border inside */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  border-bottom: 1px solid transparent;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22; */
+  /* outline-offset: 8px; */
+}
+
+/* HELPER/SETTINGS CLASSES */
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+strong {
+  font-weight: 500;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+}
+.dot::before {
+  content: "";
+  position: absolute;
+  top: 63%;
+  left: 5rem;
+  height: 150px;
+  width: 400px;
+  background-image: url(./../img/icons/Dot-Ornament.jpg);
+  z-index: -1;
+}
+
+.ellipse-or::after {
+  content: "";
+  position: absolute;
+  background-image: url(./../img/icons/Rectangle.jpg);
+  position: absolute;
+  height: 18rem;
+  width: 18rem;
+  bottom: -15%;
+  right: 10%;
+  z-index: -1;
+}
+
+.ellipse::before {
+  content: "";
+  position: absolute;
+  background-image: url(./../img/icons/Ellipse.jpg);
+  height: 13rem;
+  width: 13rem;
+  position: absolute;
+  top: 0;
+  left: -9%;
+  z-index: -1;
+}
+
+.heading-primary {
+  font-size: 4.6rem;
+  line-height: 2.5;
+  font-weight: 700;
+}
+
+.common-text {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--color-text);
+  max-width: 90%;
+}
+@media only screen and (min-width: 160em) {
+  .common-text {
+    max-width: 95%;
+  }
+}
+@media only screen and (min-width: 120em) {
+  .common-text {
+    max-width: 100%;
+  }
+}
+
+.heading-secondary {
+  font-size: 3.8rem;
+  margin-bottom: 2rem;
+  font-family: "Averta", serif;
+}
+
+.heading-tertiary {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.font-small {
+  font-size: 1.4rem;
+}
+
+.font-medium {
+  font-size: 2.8rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.block {
+  display: block;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.8rem 11rem;
+}
+@media only screen and (min-width: 160em) {
+  #header {
+    padding: 2.8rem 16rem;
+  }
+}
+
+nav#nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+#section-hero {
+  padding: 2rem 0 2rem 7rem;
+  position: relative;
+}
+@media only screen and (min-width: 120em) {
+  #section-hero {
+    padding: 8rem 0 2rem 2rem;
+  }
+}
+
+#section-clients {
+  padding: 10rem 5rem;
+}
+
+#section-features {
+  padding: 5rem 6rem;
+  position: relative;
+  background-image: url(./../img/icons/Rectangle-24-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 50% 100%;
+}
+
+#section-history {
+  padding: 5rem 6rem;
+  position: relative;
+}
+@media only screen and (min-width: 120em) {
+  #section-history {
+    padding: 16rem;
+  }
+}
+
+#section-testimonial {
+  padding: 5rem 6rem;
+  position: relative;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Proxima Nova", serif;
+  background-repeat: no-repeat;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  font: size 1.2rem;
+}
+
+html,
+body {
+  font-size: 62.5%;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+@media only screen and (max-width: 75em) {
+  html,
+  body {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  html,
+  body {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 120em) {
+  html,
+  body {
+    font-size: 75%;
+  }
+}
+@media only screen and (min-width: 160em) {
+  html,
+  body {
+    font-size: 93.75%;
+  }
+}
+
+:root {
+  --color-black: #000;
+  --color-text: #565656;
+  --color-white: #fff;
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.logo strong {
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+.nav-link {
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  color: var(--color-black);
+  font-weight: 600;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  gap: 5rem;
+}
+@media only screen and (min-width: 120em) {
+  .hero {
+    gap: 0;
+  }
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 63%;
+  left: 5rem;
+  height: 150px;
+  width: 400px;
+  background-image: url(./../../img/icons/Dot-Ornament.jpg);
+  z-index: -1;
+}
+.hero__content {
+  gap: 4rem;
+  max-width: 43%;
+  transform: translate(3rem, -2.5rem);
+}
+@media only screen and (min-width: 120em) {
+  .hero__content {
+    max-width: 37%;
+  }
+}
+.hero__content button {
+  background-color: #2639ed;
+  border: none;
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  border-radius: 60px;
+  margin-top: 3rem;
+  font-size: 1.8rem;
+}
+.hero__image {
+  height: 100%;
+  width: 60%;
+  position: relative;
+  z-index: 1;
+}
+@media only screen and (min-width: 120em) {
+  .hero__image {
+    width: 63rem;
+  }
+}
+@media only screen and (min-width: 120em) {
+  .hero__image {
+    transform: scale(1.3);
+  }
+}
+.hero__image::before {
+  content: "";
+  position: absolute;
+  background-image: url(./../../img/icons/orange-circle.jpg);
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 18rem;
+  width: 18rem;
+  bottom: -15%;
+  right: 10%;
+  z-index: -1;
+}
+.hero__image::after {
+  content: "";
+  position: absolute;
+  background-image: url(./../../img/icons/orange-circle.jpg);
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 18rem;
+  width: 18rem;
+  bottom: -15%;
+  right: 10%;
+  z-index: -1;
+}
+.hero__image img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.clients {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clients__logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  width: 60%;
+}
+.clients__logo {
+  width: 15.48rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  aspect-ratio: 3/2;
+}
+.clients__logo:nth-child(4) {
+  transform: translateY(0.9rem);
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.features__content {
+  position: relative;
+}
+.features__content::before {
+  content: "";
+  position: absolute;
+  background-image: url(./../../img/icons/orange-circle.jpg);
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 18rem;
+  width: 18rem;
+  bottom: -15%;
+  right: 10%;
+  z-index: -1;
+}
+.features__content::before {
+  transform: rotate(269deg);
+  top: -100%;
+  left: 0;
+}
+.features::after {
+  content: "";
+  position: absolute;
+  top: 65%;
+  left: 10%;
+  height: 150px;
+  width: 400px;
+  background-image: url(./../img/icons/Dot-Ornament.jpg);
+  z-index: -2;
+}
+.features__cards {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+@media only screen and (min-width: 160em) {
+  .features__cards {
+    width: 55%;
+  }
+}
+.features__card {
+  background-color: #fff;
+  box-shadow: 2px 2px rgba(185, 185, 185, 0.3098039216), -2px -2px 0.5px rgba(185, 185, 185, 0.3098039216);
+  flex: 0 1 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 5rem 1rem;
+  border-radius: 20px;
+}
+.features__card:nth-child(1) {
+  margin-top: 5rem;
+}
+.features__card:nth-child(2), .features__card:nth-child(4) {
+  margin-top: -8rem;
+}
+.features__card p {
+  text-align: center;
+  max-width: 95%;
+  font-size: 1.6rem;
+}
+.features__card h3 {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.features__logo {
+  display: inline-block;
+  padding: 2rem;
+  position: relative;
+}
+.features__logo img {
+  position: relative;
+  z-index: 2;
+}
+.features__logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-color: #f1f7ff;
+  border-radius: 20px;
+}
+.features__logo:has(img[src="./src/img/empty-wallet.png"]) {
+  background-color: #fff7e3;
+}
+.features__logo:has(img[src="./src/img/code.png"]) {
+  background-color: #fff2f8;
+}
+.features__logo:has(img[src="./src/img/chart-square.png"]) {
+  background-color: #deffee;
+}
+
+.history {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 8rem;
+  z-index: 1;
+}
+@media only screen and (min-width: 160em) {
+  .history {
+    width: 80%;
+    gap: 14rem;
+  }
+}
+@media only screen and (min-width: 120em) {
+  .history {
+    gap: 14rem;
+  }
+}
+.history::after {
+  content: "";
+  position: absolute;
+  background-image: url(./../../img/icons/orange-circle.jpg);
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 18rem;
+  width: 18rem;
+  bottom: -15%;
+  right: 10%;
+  z-index: -1;
+}
+.history::after {
+  background-repeat: no-repeat;
+  bottom: -112px;
+  right: 48%;
+  z-index: -4;
+}
+.history__image {
+  position: relative;
+  z-index: -3;
+  width: 50%;
+}
+@media only screen and (min-width: 120em) {
+  .history__image {
+    transform: scale(1.3);
+  }
+}
+@media only screen and (min-width: 160em) {
+  .history__image {
+    transform: scale(1.6);
+  }
+}
+.history__image::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 10rem;
+  width: 10rem;
+  z-index: 5;
+  background: url(../img/icons/play-rounded-button.jpg) no-repeat;
+  mix-blend-mode: color-burn;
+}
+.history__image img {
+  position: relative;
+  z-index: 1;
+}
+.history__content {
+  position: relative;
+  padding: 0 1rem;
+}
+.history__content::before {
+  content: "";
+  position: absolute;
+  background-image: url(./../../img/icons/Ellipse.png);
+  background-repeat: no-repeat;
+  height: 13rem;
+  width: 13rem;
+  position: absolute;
+  top: 0;
+  left: -9%;
+  z-index: -1;
+}
+.history__content::before {
+  top: -65px;
+  left: -25px;
+}
+.history__content h3 {
+  font-size: 4rem;
+  text-align: left;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.testimonial__heading .common-text {
+  max-width: 100%;
+}
+
+.testimonial__preview {
+  max-width: 30rem;
+  height: 30rem;
+  border-radius: 500px 0px 500px 500px;
+}
+.testimonial__preview img {
+  mix-blend-mode: darken;
+  border-radius: 100%;
+  border-top-right-radius: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 500px 0px 500px 500px;
+}
+.testimonial__users {
+  max-width: 24rem;
+  height: 24rem;
+}
+.testimonial__users img {
+  max-width: 100%;
+  height: 100%;
+}
+.testimonial__feedbacks {
+  width: 45%;
+}
+
+.testimonial__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 2rem;
+}
+
+.feedback {
+  height: 100px;
+  width: 100px;
+  border: 2px solid;
+}
+
+.contact {
+  background-color: #f4f9ff;
+  width: 85%;
+  height: 30rem;
+  margin: 5rem auto;
+  padding: 5rem 10rem;
+  position: relative;
+  border-radius: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact h3 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+.contact p {
+  font-weight: 400;
+  max-width: 100%;
+  font-size: 1.8rem;
+}
+.contact__input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #deffee;
+  box-shadow: 1px 1px 0.5px 0.5px rgba(86, 86, 86, 0.1803921569), -1px -1px 0.5px 0.5px rgba(86, 86, 86, 0.1803921569);
+  background-color: var(--color-white);
+  border-radius: 60px;
+  padding: 1rem;
+  gap: 3rem;
+  position: static;
+  z-index: 10;
+  transition: all 0.6s ease;
+  overflow: hidden;
+  box-shadow: 10px 20px 50px 0 rgba(0, 0, 0, 0.1490196078);
+}
+.contact__input button {
+  background-color: #2639ed;
+  color: var(--color-white);
+  padding: 20px 40px 20px 40px;
+  border: none;
+  border-radius: 60px;
+  font-size: 1.6rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+.contact__input input[type=email] {
+  border: none;
+  font-size: 1.8rem;
+  padding: 2rem 3rem;
+  background-color: transparent;
+  border-radius: 60px;
+}
+.contact__input input[type=email]:focus {
+  background-color: #fff;
+}
+.contact::after {
+  content: "";
+  width: 35%;
+  height: 100%;
+  background: url(./../img/icons/Rectangle-31.jpg);
+  position: absolute;
+  right: 0;
+  top: 0;
+  mix-blend-mode: darken;
+  background-repeat: no-repeat;
+  border-radius: 75px;
+}
+@media only screen and (min-width: 120em) {
+  .contact::after {
+    width: 30%;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    transform: scale(2);
+  }
+}
+
+.contact__input:has(input[type=email]:focus:invalid) {
+  border: none;
+  outline: 3px solid red;
+  background-color: #fff;
+}
+
+.contact__input:has(input[type=email]:focus) {
+  outline: none;
+  outline: 3px solid green;
+  background-color: #fff;
+}/*# sourceMappingURL=main.css.map */

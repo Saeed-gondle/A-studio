@@ -1,0 +1,66 @@
+#header {
+  @include flexRowCenter();
+  justify-content: space-between;
+  // padding: 2.8rem 12rem;
+  padding: 2.8rem 11rem;
+  @include respond(big-desktop-25) {
+    padding: 2.8rem 16rem;
+  }
+}
+
+nav#nav-links {
+  @include flexRowCenter();
+  gap: 4rem;
+}
+ 
+#section-hero {
+  padding: 2rem 0 2rem 7rem;
+  position: relative; 
+  @include respond(big-desktop) {
+    padding: 8rem 0 2rem 2rem;
+  }
+  // background-image: url(./../img/img-main/hero-img.jpg); 
+  // background-size: 50%;
+  // background-position: right;
+  // height: 100vh;
+} 
+#section-clients {
+  padding: 10rem 5rem;
+}
+#section-features {
+  padding: 5rem 6rem;
+  position: relative;
+  background-image: url(./../img/icons/Rectangle-24-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 50% 100%;
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   background-image: url(./../img/icons/Rectangle-24.jpg);
+  //   // @include respond(big-desktop-25) {
+  //   //   background-image: url(./../img/icons/Rectangle-24-bg.jpg);
+  //   //   height: 100%;
+  //   //   width: 50%;
+  //   //   back
+  //   //   // width: 40%;
+  //   // }
+  //   background-repeat: no-repeat;
+  //   height: 100%;
+  //   width: 60%;
+  //   z-index: -1;
+  // }
+}
+#section-history {
+  padding: 5rem 6rem;
+  position: relative;
+  @include respond(big-desktop) {
+    padding: 16rem;
+  }
+}
+#section-testimonial {
+  padding: 5rem 6rem;
+  position: relative;
+}

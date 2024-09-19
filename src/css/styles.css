@@ -73,7 +73,7 @@
 $breakpoint arguement choices:
 - phone
 - tab-port
-- tab-land
+- tab-land 
 - big-desktop
 
 ORDER: Base + typography > general layout + grid > page layout > components
@@ -240,6 +240,11 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 .grid--footer {
   grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+@media only screen and (max-width: 27em) {
+  .grid--footer {
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+  }
 }
 
 .logo-col {
@@ -576,10 +581,76 @@ strong {
   z-index: -1;
 }
 
+button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+button::before {
+  content: "Contact Now";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 60px;
+  transition: all 0.4s ease;
+  color: #2639ed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button:hover {
+  background-color: #fff;
+}
+button:hover::before {
+  left: 0%;
+}
+
+.nav-link {
+  position: relative;
+  transition: all 0.4s ease;
+}
+.nav-link::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  background-color: #2639ed;
+  transition: all 0.4s ease;
+  transform-origin: center;
+}
+.nav-link:hover::before {
+  width: 100%;
+}
+.nav-link:hover {
+  color: #2639ed;
+}
+
+.nav-link:hover {
+  color: var(--color-black);
+}
+.nav-link:hover + a {
+  color: var(--color-text);
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
 .heading-primary {
   font-size: 4.6rem;
-  line-height: 2.5;
   font-weight: 700;
+  margin-bottom: 4rem;
 }
 @media only screen and (max-width: 56.25em) {
   .heading-primary {
@@ -594,23 +665,45 @@ strong {
 
 .common-text {
   font-size: 1.6rem;
-  line-height: 2.4rem;
+  line-height: 1.5;
   color: var(--color-text);
   max-width: 90%;
 }
 @media only screen and (min-width: 160em) {
   .common-text {
     max-width: 95%;
+    font-size: 2.2rem;
   }
 }
 @media only screen and (min-width: 120em) {
   .common-text {
     max-width: 100%;
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 105em) {
+  .common-text {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 100em) {
+  .common-text {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .common-text {
+    font-size: 2rem;
   }
 }
 @media only screen and (max-width: 56.25em) {
   .common-text {
     margin-top: 2.5rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .common-text {
+    font-size: 1.8rem;
   }
 }
 
@@ -677,7 +770,7 @@ nav#nav-links {
 }
 
 section {
-  margin: 12.8rem 0;
+  margin: 5rem 0 12.8rem 0;
 }
 @media only screen and (max-width: 56.25em) {
   section {
@@ -686,7 +779,7 @@ section {
 }
 @media only screen and (max-width: 48em) {
   section {
-    margin: 12.8rem 0;
+    margin: 10rem 0;
   }
 }
 
@@ -907,6 +1000,7 @@ a:link,
 a:visited {
   text-decoration: none;
   font: size 1.2rem;
+  color: #565656;
 }
 
 html,
@@ -916,16 +1010,16 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-@media only screen and (max-width: 75em) {
+@media only screen and (max-width: 37.5em) {
   html,
   body {
-    font-size: 56.25%;
+    font-size: 62.5%;
   }
 }
 @media only screen and (max-width: 56.25em) {
   html,
   body {
-    font-size: 50%;
+    font-size: 56.25%;
   }
 }
 @media only screen and (min-width: 120em) {
@@ -937,7 +1031,7 @@ body {
 @media only screen and (min-width: 160em) {
   html,
   body {
-    font-size: 93.75%;
+    font-size: 100%;
   }
 }
 
@@ -947,9 +1041,17 @@ body {
   --color-white: #fff;
 }
 
-.logo {
+.nav-logo {
   font-size: 3rem;
   font-weight: 600;
+  background: transparent;
+}
+@media only screen and (max-width: 48em) {
+  .nav-logo {
+    position: absolute;
+    top: 5rem;
+    left: 6rem;
+  }
 }
 
 .logo strong {
@@ -960,8 +1062,12 @@ body {
 .nav-link {
   font-size: 1.6rem;
   letter-spacing: 1px;
-  color: var(--color-black);
   font-weight: 600;
+  color: #565656;
+}
+
+.nav-link.link-active {
+  color: var(--color-black);
 }
 
 .hero {
@@ -990,7 +1096,6 @@ body {
 .hero__content {
   gap: 4rem;
   max-width: 43%;
-  position: absolute;
 }
 @media only screen and (min-width: 120em) {
   .hero__content {
@@ -1005,11 +1110,21 @@ body {
     color: var(--color-black);
   }
 }
+@media only screen and (max-width: 37.5em) {
+  .hero__content {
+    position: absolute;
+  }
+}
+@media only screen and (max-width: 27em) {
+  .hero__content {
+    max-width: 100%;
+  }
+}
 .hero__content button {
   background-color: #2639ed;
   border: none;
   color: var(--color-white);
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
   border-radius: 60px;
   margin-top: 3rem;
   font-size: 1.8rem;
@@ -1020,21 +1135,31 @@ body {
   position: relative;
   z-index: 1;
 }
-@media only screen and (min-width: 120em) {
-  .hero__image {
-    width: 63rem;
-  }
-}
 @media only screen and (max-width: 48em) {
   .hero__image {
-    background: linear-gradient(rgba(255, 255, 255, 0.521), rgba(255, 255, 255, 0.521));
+    background: linear-gradient(rgba(255, 255, 255, 0.321), rgba(255, 255, 255, 0.321));
     transform: scale(1.5);
     z-index: -1;
+    position: absolute;
   }
 }
 @media only screen and (min-width: 120em) {
   .hero__image {
     transform: scale(1.3);
+    width: 40%;
+  }
+}
+@media only screen and (min-width: 160em) {
+  .hero__image {
+    transform: scale(1.5);
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .hero__image {
+    position: relative;
+    height: 100%;
+    width: 100%;
   }
 }
 .hero__image::before {
@@ -1069,7 +1194,7 @@ body {
 }
 @media only screen and (max-width: 48em) {
   .hero__image img {
-    opacity: 0.5;
+    opacity: 0.35;
   }
 }
 
@@ -1100,6 +1225,12 @@ body {
   gap: 6rem;
   width: 60%;
 }
+@media only screen and (max-width: 75em) {
+  .clients__logos {
+    flex-wrap: wrap;
+    width: 80%;
+  }
+}
 .clients__logo {
   width: 15.48rem;
   object-fit: contain;
@@ -1108,12 +1239,6 @@ body {
 @media only screen and (max-width: 75em) {
   .clients__logo {
     width: 12rem;
-    aspect-ratio: 3/2;
-  }
-}
-@media only screen and (max-width: 56.25em) {
-  .clients__logo {
-    width: 10rem;
     aspect-ratio: 3/2;
   }
 }
@@ -1192,6 +1317,11 @@ body {
     width: 55%;
   }
 }
+@media only screen and (max-width: 64em) {
+  .features__cards {
+    width: 85%;
+  }
+}
 @media only screen and (max-width: 37.5em) {
   .features__cards {
     width: 90%;
@@ -1222,6 +1352,11 @@ body {
     margin: 1.5rem 0;
   }
 }
+@media only screen and (max-width: 37.5em) {
+  .features__card p {
+    font-size: 1.2rem;
+  }
+}
 .features__card:nth-child(1) {
   margin-top: 5rem;
 }
@@ -1242,6 +1377,11 @@ body {
   display: inline-block;
   padding: 2rem;
   position: relative;
+}
+@media only screen and (max-width: 37.5em) {
+  .features__logo {
+    transform: scale(0.75);
+  }
 }
 .features__logo img {
   position: relative;
@@ -1344,6 +1484,12 @@ body {
   .history__image {
     transform: scale(1);
     width: 95%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .history__image {
+    transform: scale(0.75);
+    width: 136%;
   }
 }
 .history__image::before {
@@ -1462,6 +1608,11 @@ body {
 .testimonial__feedbacks {
   width: 45%;
 }
+@media only screen and (max-width: 27em) {
+  .testimonial__feedbacks {
+    width: 75%;
+  }
+}
 
 .testimonial__container {
   display: flex;
@@ -1473,6 +1624,11 @@ body {
   .testimonial__container {
     flex-wrap: wrap;
     gap: 4rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .testimonial__container {
+    gap: 6rem;
   }
 }
 
@@ -1502,9 +1658,33 @@ body {
     width: 92%;
   }
 }
+@media only screen and (max-width: 64em) {
+  .contact {
+    width: 95%;
+  }
+}
 @media only screen and (max-width: 48em) {
   .contact {
     width: 95%;
+  }
+}
+@media only screen and (min-width: 80em) {
+  .contact {
+    padding: 5rem 8rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .contact > * {
+    text-align: center;
+    color: var(--color-black);
   }
 }
 .contact h3 {
@@ -1513,7 +1693,7 @@ body {
 }
 @media only screen and (max-width: 56.25em) {
   .contact h3 {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
   }
 }
 @media only screen and (max-width: 48em) {
@@ -1526,7 +1706,7 @@ body {
   max-width: 100%;
   font-size: 1.8rem;
 }
-@media only screen and (max-width: 56.25em) {
+@media only screen and (max-width: 64em) {
   .contact p {
     margin-top: 1.5rem;
   }
@@ -1573,6 +1753,17 @@ body {
     padding: 20px 20px 20px 20px;
   }
 }
+@media only screen and (max-width: 64em) {
+  .contact__input button {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (max-width: 27em) {
+  .contact__input button {
+    font-size: 1.3rem;
+    padding: 10px;
+  }
+}
 .contact__input input[type=email] {
   border: none;
   font-size: 1.8rem;
@@ -1586,8 +1777,22 @@ body {
     padding: 2rem;
   }
 }
+@media only screen and (max-width: 64em) {
+  .contact__input input[type=email] {
+    font-size: 1.6rem;
+    padding: 2rem;
+  }
+}
+@media only screen and (max-width: 27em) {
+  .contact__input input[type=email] {
+    font-size: 1.4rem;
+  }
+}
 .contact__input input[type=email]:focus {
-  background-color: #fff;
+  background-color: transparent;
+}
+.contact__input input[type=email]:focus:valid {
+  background-color: transparent;
 }
 .contact::after {
   content: "";
@@ -1608,6 +1813,20 @@ body {
     bottom: 0;
     top: 0;
     transform: scale(2);
+  }
+}
+@media only screen and (min-width: 160em) {
+  .contact::after {
+    width: 30%;
+    right: 0;
+    bottom: 0;
+    top: 115px;
+    transform: scale(2);
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .contact::after {
+    background: linear-gradient(rgba(255, 255, 255, 0.425), rgba(255, 255, 255, 0.425)), url(./../img/icons/Rectangle-31.jpg);
   }
 }
 

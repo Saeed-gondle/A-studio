@@ -1,43 +1,56 @@
-
 .heading-primary {
   font-size: 4.6rem;
-  line-height: 2.5;
   font-weight: 700;
-  @include respond(tab-port) {    
+  margin-bottom: 4rem;
+  @include respond(tab-port) {
     line-height: 1.5;
   }
-  @include respond(tab-768) {    
+  @include respond(tab-768) {
     font-size: 4.3rem;
   }
 }
 .common-text {
   font-size: 1.6rem;
-  line-height: 2.4rem;
+  line-height: 1.5;
   color: var(--color-text);
   max-width: 90%;
-    @include respond(big-desktop-25) {
-      max-width: 95%; 
-    }
-     @include respond(big-desktop) {    
-      max-width: 100%;
-    }
-    @include respond(tab-port) {    
-     margin-top: 2.5rem;
-    }
+  @include respond(big-desktop-25) {
+    max-width: 95%;
+    font-size: 2.2rem;
+  }
+  @include respond(big-desktop) {
+    max-width: 100%;
+    font-size: 2rem;
+  }
+  @include respond(dsk-1650) {
+    font-size: 2rem;
+  }
+  @include respond(dsk-1600) {
+    font-size: 2rem;
+  }
+  @include respond(dsk-1440) {
+    font-size: 2rem;
+  }
+  @include respond(tab-port) {
+    margin-top: 2.5rem;
+  }
+  @include respond(phone) {
+    font-size: 1.8rem;
+  }
 }
 .heading-secondary {
   font-size: 3.8rem;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
   font-family: "Averta", serif;
-  @include respond(tab-768) {    
+  @include respond(tab-768) {
     font-size: 3.4rem;
   }
 }
 
 .heading-tertiary {
   font-size: 2rem;
-  line-height: 1.5; 
-  @include respond(tab-768) {    
+  line-height: 1.5;
+  @include respond(tab-768) {
     font-size: 1.8rem;
   }
 }

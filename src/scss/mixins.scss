@@ -207,7 +207,7 @@
 $breakpoint arguement choices:
 - phone
 - tab-port
-- tab-land
+- tab-land 
 - big-desktop
 
 ORDER: Base + typography > general layout + grid > page layout > components
@@ -215,13 +215,13 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone {
-    @media only screen and (max-width: 37.5em) {
-      @content;
-    } //600px
-  }
   @if $breakpoint == phone-425 {
     @media only screen and (max-width: 27em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
       @content;
     } //600px
   }
@@ -240,6 +240,16 @@ ORDER: Base + typography > general layout + grid > page layout > components
       @content;
     } //1200px
   }
+  @if $breakpoint == laptop {
+    @media only screen and (max-width: 64em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == dsk-1280 {
+    @media only screen and (min-width: 80em) {
+      @content;
+    } //1800
+  }
   @if $breakpoint == dsk-1440 {
     @media only screen and (min-width: 90em) {
       @content;
@@ -251,7 +261,8 @@ ORDER: Base + typography > general layout + grid > page layout > components
     } //1800
   }
   @if $breakpoint == dsk-1650 {
-    @media only screen and (min-width: 105em) {
+    @media only screen and (min-width: 105em) { 
+      
       @content;
     } //1800
   }
@@ -431,6 +442,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 .grid--footer {
   grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+  @include respond(phone-425) {
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+  }
 }
 
 .logo-col {

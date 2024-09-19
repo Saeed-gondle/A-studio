@@ -6,13 +6,13 @@
   }
   to {
     opacity: 1;
-    pointer-events: auto;   
-    visibility: visible; 
+    pointer-events: auto;
+    visibility: visible;
   }
 }
 .dot {
-  &::before {  
-    content: ""; 
+  &::before {
+    content: "";
     position: absolute;
     top: 63%;
     left: 5rem;
@@ -47,4 +47,70 @@
     left: -9%;
     z-index: -1;
   }
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  &::before {
+    content: "Contact Now";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 60px;
+    transition: all 0.4s ease;
+    color: #2639ed;
+
+    @include flexRowCenter();
+  }
+  &:hover {
+    background-color: #fff;
+  }
+  &:hover::before {
+    left: 0%;
+  }
+}
+
+.nav-link {
+  position: relative;
+  transition: all 0.4s ease;
+  &::before {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    background-color: #2639ed;
+    transition: all 0.4s ease;
+    transform-origin: center;
+  }
+  &:hover::before {
+    width: 100%;
+  }
+  &:hover {
+    color: #2639ed;
+  }
+}
+.nav-link {
+  &:hover {
+    color: var(--color-black);
+
+    // Change non-hovered links color
+    + a {
+      color: var(--color-text);
+    }
+  }
+}
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+.sticky {
+  position: fixed;
+  top: 0;
 }

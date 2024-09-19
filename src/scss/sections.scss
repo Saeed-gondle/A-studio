@@ -15,13 +15,13 @@ nav#nav-links {
     display: none;
   }
 }
-section {
-  margin: 12.8rem 0;
+section{
+  margin: 5rem 0 12.8rem 0;
   @include respond(tab-port) {
     margin: 8rem 0;
   }
   @include respond(tab-768) {
-    margin: 12.8rem 0;
+    margin: 10rem 0;
   }
 }
 #section-hero {

@@ -12,6 +12,7 @@ a:link,
 a:visited {
   text-decoration: none;
   font: size 1.2rem;
+  color: #565656;
 }
 
 html,
@@ -21,21 +22,24 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 
-  @include respond(tab-land) {
+  @include respond(phone) {
+    // width < 1200?
+    font-size: 62.5%; //1 rem = 9px, 9/16 = 50%
+  }
+  @include respond(tab-port) {
     // width < 1200?
     font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
   }
-
-  @include respond(tab-port) {
-    // width < 900?
-    font-size: 50%; //1 rem = 8px, 8/16 = 50%
-  }
+  // @include respond(tab-port) {
+  //   // width < 900?
+  //   font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  // }
 
   @include respond(big-desktop) {
     font-size: 75%; //1rem = 12, 12/16
   }
   @include respond(big-desktop-25) {
-    font-size: 93.75%; //1rem = 12, 12/16
+    font-size: 100%; //1rem = 12, 12/16
   }
 }
 :root {
@@ -44,9 +48,15 @@ body {
   --color-white: #fff;
 }
 
-.logo {
+.nav-logo {
   font-size: 3rem;
   font-weight: 600;
+  background: transparent;
+  @include respond(tab-768) {
+    position: absolute;
+    top: 5rem;
+    left: 6rem;
+  }
 }
 
 .logo strong {
@@ -57,10 +67,12 @@ body {
 .nav-link {
   font-size: 1.6rem;
   letter-spacing: 1px;
-  color: var(--color-black);
   font-weight: 600;
+  color: #565656;
 }
-
+.nav-link.link-active {
+  color: var(--color-black);
+}
 .hero {
   // transition: all 1s ease-in-out;
   @include flexRowCenter();
@@ -77,9 +89,6 @@ body {
   &__content {
     gap: 4rem;
     max-width: 43%;
-    // transform: translateY(-3rem);
-    // transform: translate(3rem, -2.5rem);
-    position: absolute;
     @include respond(big-desktop) {
       max-width: 37%;
     }
@@ -89,11 +98,17 @@ body {
         color: var(--color-black);
       }
     }
+    @include respond(phone) {
+      position: absolute;
+    }
+    @include respond(phone-425) {
+      max-width: 100%;
+    }
     button {
       background-color: #2639ed;
       border: none;
       color: var(--color-white);
-      padding: 1rem 2rem;
+      padding: 2rem 4rem;
       border-radius: 60px;
       margin-top: 3rem;
       font-size: 1.8rem;
@@ -102,21 +117,30 @@ body {
   &__image {
     height: 100%;
     width: 60%;
-    @include respond(big-desktop) {
-      width: 63rem;
-    }
+    position: relative;
+    z-index: 1;
     @include respond(tab-768) {
       background: linear-gradient(
-        rgba(255, 255, 255, 0.521),
-        rgba(255, 255, 255, 0.521)
+        rgba(255, 255, 255, 0.321),
+        rgba(255, 255, 255, 0.321)
       );
       transform: scale(1.5);
       z-index: -1;
+      position: absolute;
     }
-    position: relative;
-    z-index: 1;
+
     @include respond(big-desktop) {
       transform: scale(1.3);
+      width: 40%;
+    }
+    @include respond(big-desktop-25) {
+      transform: scale(1.5);
+      width: 30%;
+    }
+    @include respond(phone) {
+      position: relative;
+      height: 100%;
+      width: 100%;
     }
     @include ellipse-or(before);
     @include ellipse-half(after);
@@ -128,7 +152,7 @@ body {
       max-height: 100%;
       max-width: 100%;
       @include respond(tab-768) {
-        opacity: 0.5;
+        opacity: 0.35;
       }
     }
   }
@@ -153,6 +177,10 @@ body {
     @include flexRowCenter();
     gap: 6rem;
     width: 60%;
+    @include respond(tab-land) {
+      flex-wrap: wrap;
+      width: 80%;
+    }
   }
   &__logo {
     width: 15.48rem;
@@ -163,10 +191,7 @@ body {
       width: 12rem;
       aspect-ratio: 3/2;
     }
-    @include respond(tab-port) {
-      width: 10rem;
-      aspect-ratio: 3/2;
-    }
+
     aspect-ratio: 3/2;
     &:nth-child(4) {
       transform: translateY(0.9rem);
@@ -220,6 +245,9 @@ body {
     @include respond(big-desktop-25) {
       width: 55%;
     }
+    @include respond(laptop) {
+      width: 85%;
+    }
     @include respond(phone) {
       width: 90%;
     }
@@ -242,6 +270,13 @@ body {
       }
       h3 {
         margin: 1.5rem 0;
+      }
+    }
+    @include respond(phone) {
+      p {
+        font-size: 1.2rem;
+      }
+      h3 {
       }
     }
     &:nth-child(1) {
@@ -267,7 +302,9 @@ body {
   // background-color: #2639ed;
   padding: 2rem;
   position: relative;
-
+  @include respond(phone) {
+    transform: scale(0.75);
+  }
   img {
     position: relative;
     z-index: 2;
@@ -343,6 +380,10 @@ body {
     @include respond(phone) {
       transform: scale(1);
       width: 95%;
+    }
+    @include respond(phone) {
+      transform: scale(0.75);
+      width: 136%;
     }
     position: relative;
     z-index: -3;
@@ -431,6 +472,9 @@ body {
   }
   &__feedbacks {
     width: 45%;
+    @include respond(phone-425) {
+      width: 75%;
+    }
   }
 }
 .testimonial__container {
@@ -439,6 +483,9 @@ body {
   @include respond(phone) {
     flex-wrap: wrap;
     gap: 4rem;
+  }
+  @include respond(phone) {
+    gap: 6rem;
   }
 }
 .feedback {
@@ -463,14 +510,29 @@ body {
     height: 25rem;
     width: 92%;
   }
+  @include respond(laptop) {
+    width: 95%;
+  }
   @include respond(tab-768) {
     width: 95%;
+  }
+  @include respond(dsk-1280) {
+    padding: 5rem 8rem;
+  }
+  @include respond(phone) {
+    @include flexColCenter();
+    justify-content: space-around;
+    width: 100%;
+    & > * {
+      text-align: center;
+      color: var(--color-black);
+    }
   }
   h3 {
     font-size: 4rem;
     font-weight: 700;
     @include respond(tab-port) {
-      font-size: 2.8rem;
+      font-size: 2.4rem;
     }
     @include respond(tab-768) {
       font-size: 2.4rem;
@@ -480,7 +542,7 @@ body {
     font-weight: 400;
     max-width: 100%;
     font-size: 1.8rem;
-    @include respond(tab-port) {
+    @include respond(laptop) {
       margin-top: 1.5rem;
     }
     @include respond(tab-768) {
@@ -517,6 +579,13 @@ body {
         font-size: 1.4rem;
         padding: 20px 20px 20px 20px;
       }
+      @include respond(laptop) {
+        font-size: 1.4rem;
+      }
+      @include respond(phone-425) {
+        font-size: 1.3rem;
+        padding: 10px;
+      }
     }
     input[type="email"] {
       border: none;
@@ -528,9 +597,18 @@ body {
         font-size: 1.6rem;
         padding: 2rem;
       }
-
+      @include respond(laptop) {
+        font-size: 1.6rem;
+        padding: 2rem;
+      }
+      @include respond(phone-425) {
+        font-size: 1.4rem;
+      }
       &:focus {
-        background-color: #fff;
+        background-color: transparent;
+      }
+      &:focus:valid {
+        background-color: transparent;
       }
     }
   }
@@ -545,12 +623,27 @@ body {
     mix-blend-mode: darken;
     background-repeat: no-repeat;
     border-radius: 75px;
+
     @include respond(big-desktop) {
       width: 30%;
       right: 0;
       bottom: 0;
       top: 0;
       transform: scale(2);
+    }
+    @include respond(big-desktop-25) {
+      width: 30%;
+      right: 0;
+      bottom: 0;
+      top: 115px;
+      transform: scale(2);
+    }
+    @include respond(phone) {
+      background: linear-gradient(
+          rgba(255, 255, 255, 0.425),
+          rgba(255, 255, 255, 0.425)
+        ),
+        url(./../img/icons/Rectangle-31.jpg);
     }
   }
 }

@@ -36,6 +36,7 @@ const slider = function () {
     }.jpg`;
     imagContainer.innerHTML = "";
     imagContainer.prepend(img);
+
     slides.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
     );
@@ -78,7 +79,8 @@ const slider = function () {
   };
   init();
 
-  // Event handlers 
+  // Event handlers
+
   setInterval(() => {
     try {
       if (curSlide >= slides.length) curSlide = 0;
@@ -107,62 +109,66 @@ const slider = function () {
 };
 slider();
 
-//    <div class="slider">
-//      <div class="slide">
-//        <div class="testimonial__content testimonial">
-//          <h5 class="testimonial__header">Paul Pheonix</h5>
-//          <blockquote class="testimonial__text">
-//            Perfect, very good job! Thank you for the amazing design and work.
-//            Really impressed with the high quality and quick turnaround time.
-//            Highly recommend.
-//          </blockquote>
-//        </div>
-//      </div>
-//      <div class="slide">
-//        <div class="testimonial">
-//          <h5 class="testimonial__header">Rose marry winters</h5>
-//          <blockquote class="testimonial__text">
-//            Perfect, very good job! Thank you for the amazing design and work.
-//            Really impressed with the high quality and quick turnaround time.
-//            Highly recommend.
-//          </blockquote>
-//        </div>
-//      </div>
-//      <div class="slide">
-//        <div class="testimonial">
-//          <h5 class="testimonial__header">Finally free from old-school banks</h5>
-//          <blockquote class="testimonial__text">
-//            Perfect, very good job! Thank you for the amazing design and work.
-//            Really impressed with the high quality and quick turnaround time.
-//            Highly recommend.
-//          </blockquote>
-//        </div>
-//      </div>
-//      <div class="slide">
-//        <div class="testimonial">
-//          <h5 class="testimonial__header">Finally free from old-school banks</h5>
-//          <blockquote class="testimonial__text">
-//            Debitis, nihil sit minus suscipit magni aperiam vel tenetur incidunt
-//            commodi architecto numquam omnis nulla autem, necessitatibus
-//            blanditiis modi similique quidem. Odio aliquam culpa dicta beatae
-//            quod maiores ipsa minus consequatur error sunt, deleniti saepe
-//            aliquid quos inventore sequi. Necessitatibus id alias reiciendis,
-//            perferendis facere.
-//          </blockquote>
-//        </div>
-//      </div>
-//      <div class="slide">
-//        <div class="testimonial">
-//          <h5 class="testimonial__header">Finally free from old-school banks</h5>
-//          <blockquote class="testimonial__text">
-//            Debitis, nihil sit minus suscipit magni aperiam vel tenetur incidunt
-//            commodi architecto numquam omnis nulla autem, necessitatibus
-//            blanditiis modi similique quidem. Odio aliquam culpa dicta beatae
-//            quod maiores ipsa minus consequatur error sunt, deleniti saepe
-//            aliquid quos inventore sequi. Necessitatibus id alias reiciendis,
-//            perferendis facere.
-//          </blockquote>
-//        </div>
-//      </div>
-//      <div class="dots"></div>
-//    </div>;
+// Navlinks
+const navLinks = document.querySelector("#nav-links");
+
+const handleHover = function (e) {
+  if (e.target.classList.contains("nav-link")) {
+    const link = e.target;
+    const siblings = link.closest("#nav-links").querySelectorAll(".nav-link");
+    // const logo = link.closest('.nav-links').closest('.logo');
+
+    siblings.forEach((el) => {
+      if (el !== link) el.style.opacity = this;
+    });
+    // logo.style.opacity = this;
+  }
+};
+
+// Passing "argument" into handler
+navLinks.addEventListener("mouseover", handleHover.bind(0.5));
+navLinks.addEventListener("mouseout", handleHover.bind(1));
+
+// Reveal section
+const header = document.querySelector("#header");
+const nav = document.querySelector("nav#nav-links");
+const navHeight = nav.getBoundingClientRect().height;
+// const navHeight=100;
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  // console.log(entry);
+
+  // if (!entry.isIntersecting) {
+  //   nav.closest("#header").classList.add("sticky");
+  //   // nav.closest('#header').classList.add("sticky");
+  // } else nav.closest("#header").classList.remove("sticky");
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+
+headerObserver.observe(header);
+// reveal
+const allSections = document.querySelectorAll("section");
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove("section--hidden");
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add("section--hidden");
+});
